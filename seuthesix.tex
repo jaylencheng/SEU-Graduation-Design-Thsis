@@ -1,0 +1,521 @@
+
+% This is file `seuthesix.tex',
+% This file is the source of the documentation of the `seuthesix' class.
+% Copyright (c) 2016 James Fan, email: zhimengfan1990@163.com
+% License: GNU General Public License, version 3
+%This file is part of ``seuthesix'' package.
+%``seuthesix'' is free software: you can redistribute it and/or modify
+%it under the terms of the GNU General Public License as published by
+%the Free Software Foundation, either version 3 of the License, or
+%(at your option) any later version.
+%``seuthesix'' is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%
+%You should have received a copy of the GNU General Public License
+%along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\documentclass[openany,masters]{seucata}
+\usepackage{hologo}
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\begin{document}
+\categorynumber{000} 
+\UDC{000}            
+\secretlevel{公开}   
+\studentid{000000}   
+\title{欢迎神仙们引用我的模板}{求星星}{Welcome my God}{STAR}
+\author{Jaylen Cheng}{jaylencheng.github.io}
+\advisor{爱因斯坦}{教授}{Donald E. Knuth}{Prof.}
+\coadvisor{费曼}{副教授}{Leslie Lamport}{Associate Prof.} 
+\degreetype{神学}{Master of \TeX}
+\major{神的产生专业}
+\submajor{天使降临系}
+\defenddate{\today}
+\authorizedate{\today}
+\committeechair{朗道}
+\reviewer{Newton}{Gauss}
+\department{东南大学Cata学院}{School of Cata in SEU}
+\seuthesisthanks{本课题的研究获God bless Cata project 赞助:%
+\url{jaylencheng.github.io}}
+%\makebigcover
+\makecover
+
+
+\begin{abstract}{\TeX, \LaTeX, 文档类， 毕业设计论文}
+本文介绍如何使用seucata 文档类撰写东南大学毕业设计论文。
+\end{abstract}
+\begin{englishabstract}{\TeX, \LaTeX, document class, thesis/dissertation}
+This work presents an introduction of how to use seucata document class to 
+typeset the Graduation design (thesis) of Southeast University.
+\end{englishabstract}
+
+\tableofcontents
+\listofothers
+
+\mainmatter
+
+
+\chapter{绪论}
+\verb+seucata.cls+ 提供了符合规范的东南大学本科毕业设计论文的\LaTeX 模板。
+模板的格式尽量满足东南大学教务处的要求，当然由于水平有限其中错
+漏在所难免，我们欢迎东大的 \LaTeX{er} 一起参加开发和完善。如果您对开发和完善seucata
+感兴趣、有任何想法或建议，请与Cata联系。该项目主页GitHub:
+\url{https://github.com/jaylencheng/SEU-Graduation-Design-Thsis}。
+联系方式：Email(jaylencheng@outlook.com)or网页留言：
+\url{https://jaylencheng.github.io}。
+
+本模板基于早期许元同学等人发布的\verb+seuthesix.cls+，其版本见网址：
+\url{https://github.com/zhimengfan1990/seuthesix}。
+由于其中只有硕博士论文的模板，个人将其修改为符合本科毕业设计内容的模板。
+
+
+\section{版权声明}
+
+这一程序是自由软件，你可以遵照自由软件基金会发布的《GNU 通用公共许可证
+条款第三版》来修改和重新发布这一程序，或者 (根据您的选择) 用任何更新的版本。
+发布这一程序的目的是希望它有用，但没有任何担保。甚至没有适合特定目的的隐含
+的担保。更详细的情况请参阅《GNU 通用公共许可证》
+\footnote{\url{http://www.gnu.org/licenses/gpl.html}}
+
+\section{版本历史}
+\begin{description}
+\item[1.0] 2016/01/11，基于\seuthesis 构建新的\seuthesix 文档类。放弃\seuthesis 
+的xeCJK方案 ，直接采用\verb+ctexrep.cls+ 构建\verb+seuthesix.cls+。
+本项目为对本科学位论文的支持。
+\end{description}
+                   
+\chapter{下载和安装}  
+\section{下载}     
+本项目最新源码可以到本项目在 GitHub 中找到，访问
+\url{https://github.com/jaylencheng/SEU-Graduation-Design-Thsis}下载。
+
+\section{安装}
+将宏包中的文件放在当前工作目录(与 \verb+.tex+ 文件放在同一目录下)即可，
+当然也可以安装到 \TeX 系统
+中，不过需要注意是参考文献样式文件 \verb+.bst+ 必须置于 \verb+TEXMF/bibtex/bst+ 目录或子目
+录下。
+
+本模板在 \TeX{Live} 2015(Windows 7 和 Linux Mint 17.1 环境下) 通过\hologo{XeLaTeX} 编译通过。注意，若在Linux 上编译，
+由于Linux缺少所依赖的字体(宋体、黑体、楷体、Times New Roman)，因此需要用户自己安装这些字体，否则编译时会报错。
+将Windows中的字体复制到Linux中安装即可。
+
+原则上，只要安装了\TeX{Live} 2015和宋体、黑体、楷体、Times New Roman等字体，本模板也支持OS X。（已经做过OS X 上的测试。）
+
+如有您在使用中有任何问题，欢迎与我们联系。
+
+\chapter{使用说明}
+东南大学本科毕业设计论文应包括如下部分：\\
+\begin{enumerate}
+\itshape
+\item 中文封面
+\item 中文页面
+\item 英文页面（可选）
+\item 论文独创性声明和使用授权声明
+\item 中文内容提要及关键词
+\item 英文内容提要及关键词
+\item 目录
+\item \fbox{符号、变量、缩略词等本论文专用术语的注释表}（可选）
+\item 正文
+\item \fbox{致谢}
+\item 参考文献
+\item  \fbox{附录}
+\end{enumerate}
+并按此顺序排列，其中\fbox{加方框的条目}为可选。
+
+\section{模板整体框架}
+使用 \seuthesix 模板的整体框架如下所示，其中\verb+<...>+表示可替换的文本(replaceable text)。
+{\color{magenta}
+\begin{verbatim}
+\documentclass[openany,masters]{seucata}
+\usepackage{hologo}
+\usepackage{pdfpages}
+\begin{document}
+\categorynumber{000} 
+\UDC{000}            
+\secretlevel{公开}   
+\studentid{000000}   
+\title{欢迎神仙们引用我的模板}{求星星}{Welcome my God}{STAR}
+\author{Jaylen Cheng}{jaylencheng.github.io}
+\advisor{爱因斯坦}{教授}{Donald E. Knuth}{Prof.}
+\coadvisor{由乃}{副教授}{Leslie Lamport}{Associate Prof.} 
+\degreetype{神学}{Master of \TeX}
+\major{神的产生专业}
+\submajor{天使降临系}
+\defenddate{\today}
+\authorizedate{\today}
+\committeechair{朗道}
+\reviewer{Newton}{Gauss}
+\department{东南大学Cata学院}{School of Cata in SEU}
+\seuthesisthanks{本课题的研究获God bless Cata project 赞助:%
+\url{jaylencheng.github.io}}
+%\makebigcover
+\makecover
+\begin{abstract}{<\TeX, \LaTeX, 文档类， 学位论文>}
+<本文介绍如何使用\seuthesix 文档类撰写东南大学学位论文。>
+\end{abstract}
+%生成中文摘要和关键词
+\begin{englishabstract}{<\TeX, \LaTeX, document class， thesis/dissertation>}
+<This work presents an introduction of how to use \seuthesix document class to 
+typeset the thesis/dissertation of Southeast University.>
+\end{englishabstract}
+%生成英文摘要和关键词
+\tableofcontents%生成目录
+\setnomname{<术语表名称>}%设置术语表的名称，用于\listofothers
+\listofothers%生成图、表等目录，没有可以不写
+
+\mainmatter
+%开始正文
+
+\chapter{<绪论>}
+\section{<研究背景>}
+\section{<本论文的工作>}
+...
+
+
+\chapter{<...>}
+\section{<...>}
+...
+
+
+...
+
+
+\chapter{<全文总结>}
+...
+
+\acknowledgement
+<感谢每一个给予帮助的人...>
+致谢，没有可以不写
+
+\thesisbib{<bib文件名>}
+参考文献
+
+\appendix
+\chapter{<...>}
+...
+
+\chapter{<...>}
+...
+%附录部分，没有可以不写
+
+\resume{<作者简介>}
+<简介内容...>
+%作者简介，没有可以不写
+
+\end{document}
+%文档到此结束
+\end{verbatim}
+}
+
+\chapter{基本语言}
+\section{Introduction}
+
+This template is based on the standard \LaTeX{} article class, which means you can pass the arguments of article class to it (\verb|a4paper|, \verb|12pt| and etc.).
+
+\section{Font Settings}
+I change the default article font computer modern to \verb|newtx| series, and the default font size is set to \verb|11pt|.
+
+\begin{itemize}
+	\item \verb|newtxtext| package for text font, similar to times new roman font.
+	\item \verb|newtxmath| package for math font, close to \verb|times| and \verb|mtpro2| packages.
+	\item \verb|newtxtt| package for typewriter font, with option \verb|scale = 0.8|.
+\end{itemize}
+
+These packages operate perfectly but are inappropriate for big operators, for example \verb|\sum| and \verb|\prod|, thus, I change these operators back to computer modern font. Equation~\eqref{eq:binom} shows the effects of these fonts:
+\begin{equation}
+(a+b)^{n} = \sum_{k=0}^{n} C_{n}^{k} a^{n-k} b^k \label{eq:binom}
+\end{equation}
+
+
+
+The \verb|\linespread| (controls line spacing) is set to 1.3, and I use \verb|microtype| to improve the font justification. \verb|type1cm| package is used to remove the font shape and font size warning messages.
+
+\section{Custom Commands}
+
+I don't change any default command or environment, which means you can use all the basic \LaTeX{} commands and environments as before.  Besides, I define 3 commands
+\begin{enumerate}
+	\item \verb|\email{#1}|: create the hyperlink to email address.
+	\item \verb|\figref{#1}|: same usage as \verb|\ref{#1}|, but start with label text <\textbf{Figure n}>.
+	\item \verb|\tabref{#1}|: same usage as \verb|\ref{#1}|, but start with label text <\textbf{Table n}>.
+\end{enumerate}{}
+
+\section{Table}
+I strongly recommend you to use the \verb|booktabs| package in your paper. It adds three commands to make the table prettier, ie. \verb|\toprule|, \verb|\midrule| and \verb|\bottomrule|. Here is an example.
+
+\begin{table}[!htbp]
+	\small
+	\centering
+	\caption{Regression Result Example}
+	\begin{tabular}{lll}
+		\toprule
+		& \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+		& \multicolumn{1}{c}{price} & \multicolumn{1}{c}{price} \\
+		\midrule
+		mpg   & \multicolumn{1}{c}{-238.9***} & \multicolumn{1}{c}{-49.51} \\
+		& \multicolumn{1}{c}{(53.08)} & \multicolumn{1}{c}{(86.16)} \\
+		weight & \multicolumn{1}{c}{} & \multicolumn{1}{c}{1.747***} \\
+		& \multicolumn{1}{c}{} & \multicolumn{1}{c}{(0.641)} \\
+		constant & \multicolumn{1}{c}{11,253***} & \multicolumn{1}{c}{1,946} \\
+		& \multicolumn{1}{c}{(1,171)} & \multicolumn{1}{c}{(3,597)} \\
+		observations & \multicolumn{1}{c}{74} & \multicolumn{1}{c}{74} \\
+		R-squared & \multicolumn{1}{c}{0.220} & \multicolumn{1}{c}{0.293} \\
+		\midrule
+		\multicolumn{3}{l}{\scriptsize Standard errors in parentheses} \\
+		\multicolumn{3}{l}{\scriptsize *** p<0.01, ** p<0.05, * p<0.1} \\
+	\end{tabular}%
+	\label{tab:reg}%
+\end{table}%
+
+
+
+\section{Graphics}
+To include a graphic, you can use figure environment as usual. You can put all your images in the sub directories (\verb|./image/|, \verb|./img/|, \verb|./figure/|, \verb|./fig/|) of your current working directory.
+
+\begin{Verbatim}[tabsize=4,frame=single,baselinestretch=1]
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.6\textwidth]{./figures/seu-color-logo.png}
+\caption{The Relationship between MPG and Weight\label{fig:mpg}}
+\end{figure}
+\end{Verbatim}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./figures/seu-color-logo.png}
+	\caption{The Relationship between MPG and Weight\label{fig:mpg}}
+\end{figure}
+
+\subsection{Bibliography}
+This template uses Bib\TeX{} to generate the bibliography, the default bibliography style is \verb|aer|. ~\cite{Chen2018} use data from a major peer-to-peer lending marketplace in China to study whether female and male investors evaluate loan performance differently. You can add bib items (from Google Scholar, Mendeley, EndNote, and etc.) to \verb|wp_ref.bib| file, and cite the bibkey in the \verb|tex| file.
+
+
+
+
+
+
+
+
+
+
+
+\chapter{注意事项}
+\section{文献引用}
+根据要求，文献引用应为数字标签(numerical label)，上标形式。但是有时也会用到正常形式，即非
+上标形式，用于正文叙述。为此分别提供了两个命令来实现。
+
+{\color{magenta}%
+\begin{verbatim}
+\cite{<citation_key>}
+\end{verbatim}
+}
+
+用于实现上标的数字形式文献引用\cite{knuth}。
+
+{\color{magenta}%
+\begin{verbatim}
+\citen{<citation_key>}
+\end{verbatim}
+}
+
+用于实现正常(非上标，normal)的数字形式文献引用\citen{mittlebach}。
+
+\section{参考文献格式}
+见\verb+seuthesix.bst+的文档: 本文第\ref{bst}章。
+
+\section{图表格式处理}
+图名、表名字体字号已经有文档类 设定好，用户无需再次设定。但是，用户需要让它居中。图名位于图下方，
+表名位于表上方。图片文件可直接置于当前工作目录，也可置于当前工作目录的\texttt{figures}子目录下(用户根据需要，自己创建该子目录)。
+图片名称只需要给出名称和扩展名，无需给出完整的路径。图\ref{logo}给出了一个图的例子。表\ref{entrytable}给出了一个表的例子。
+
+{\color{magenta}%
+\begin{verbatim}
+\begin{figure}
+\centering
+\includegraphics[...]{...}
+\caption{...}
+\label{...}
+\end{figue}
+...
+\begin{table}
+\centering
+\caption{...}
+\label{...}
+\begin{tabular}{...}
+...
+\end{tabular}.
+\end{table}
+
+\end{verbatim}
+}
+
+\begin{figure}
+\centering
+\caption{\seuthesix logo\label{logo}}
+\chuhao \seuthesix
+\end{figure}
+
+\section{算法格式处理}
+\seuthesix 文档类采用了\texttt{algorithm, algorithmic }两个宏包来设置算法排版格式。
+详细使用方法参见这两个宏包的手册。这里给出一个简单的例子。
+
+{\color{magenta}%
+\begin{verbatim}
+\begin{algorithm}
+\caption{\label{algoinsight}如何使用\seuthesix 文档类}
+\begin{algorithmic}[1]
+\STATE if (具备一定的\LaTeX 使用经验) else (stop here)
+\STATE 有耐心阅读文档
+\STATE 仔细阅读本文档
+\STATE 在使用中熟悉它
+\end{algorithmic}
+\end{algorithm}
+\end{verbatim}
+}
+
+以上代码给出了算法\ref{algoinsight}的排版结果。
+\begin{algorithm}
+\caption{\label{algoinsight}如何使用\seuthesix 文档类}
+\begin{algorithmic}[1]
+\STATE if (具备一定的\LaTeX 使用经验) else (stop here)
+\STATE 有耐心阅读文档
+\STATE 仔细阅读本文档
+\STATE 在使用中熟悉它
+\end{algorithmic}
+\end{algorithm}
+
+\section{术语生成}
+
+{\color{magenta}%
+\begin{verbatim}
+\nomenclature{LTE}{Long Term Evolution}
+\nomenclature[noprefix]{$\mathcal{CN}(0, C)$}{协方差矩阵为$C$的循环对称复高斯分布}
+\end{verbatim}
+}
+
+\nomenclature{LTE}{Long Term Evolution}
+\nomenclature[noprefix]{$\mathcal{CN}(0, C)$}{协方差矩阵为$C$的循环对称复高斯分布}
+术语生成借助\texttt{nomencl}宏包。以上代码例子的排版结果在术语表中。对于数学符号，为使得它
+排在普通术语的后面，需要加上\texttt{[noprefix]}选项。
+编译时，第一次
+
+{\color{magenta}%
+\verb+xelatex <filename>+ 
+}
+
+之后执行 
+
+{\color{magenta}%
+\verb+makeindex <filename>.nlo -s nomencl.ist -o <filename> .nls+
+}
+
+然后再次执行
+
+{\color{magenta}%
+\verb+xelatex <filename>+
+}
+
+一次。实际上，考虑到参考文献的生成，最后应该执行
+
+{\color{magenta}%
+\verb+xelatex <filename>+
+}
+
+至少两次。
+
+\chapter{\texttt{seuthesix.bst}参考文献格式\label{bst}}
+\section{简介}
+\texttt{seuthesix.bst} 是符合东南大学硕士和博士毕业论文参考文献格式要求的 bibliography style。
+由于该文献格式是数字标签(numeric label)格式，且无需排序。因此，它是在标准的BibTeX
+格式\texttt{unsrt.bst} 的基础上发展而来。同时，\verb=seuthesix.bst=文献格式不支持\texttt{crossref}字段。
+该文献格式支持中英文两种语言，采用中英文分离，分别进行处理的思想。对于中文文献的entry，
+要求在\verb=.bib=文献数据库中该entry 提供\texttt{language} field
+，其取值任意，但为了保持一致性，建议设为\verb+language={zh}+，或\verb+language="zh"+。
+
+\section{支持的Entry type}
+\texttt{seuthesix.bst}支持以下几种不同的entry type。
+\begin{description}
+\item[book] 书籍
+\item[article] 期刊文章
+\item[inproceedings/conference] 会议文章
+\item[mastersthesis] 硕士学位论文
+\item[phdthesis] 博士学位论文
+\item[patent] 专利
+\item[standard] 标准
+\item[news] 报纸新闻
+\item[misc] 杂项，包括电子媒体及其他未能识别的entry type
+\end{description}
+
+\section{各 entry type 所支持的field}
+不同的entry type所支持的field 不尽相同。对于每个entry type 而言，其中的field 可分为三类：
+required, optional, ignored。required field 应该必须出现，否则BibTeX 会发出warning(由bst中的output.check函数发出)，
+且最终得到的格式不能保证美观。
+optional field 可选，若未出现，不会导致BibTeX warning。ignored field 
+不起任何作用，被BibTeX 忽略。在entry type 对应的bibtex 函数(如 \verb=FUNCTION {article}=)中未使用的 field 都属于 ignored field。
+
+下面列出各entry type所支持的field(即required field 和optional field)，
+其中required field使用黑体。如表\ref{entrytable}所示。
+
+\begin{table}
+\centering
+\caption{\label{entrytable}不同entry type支持的field}
+\begin{tabular}{|c||p{10cm}|}
+\hline
+\bfseries Entry type & \raggedright\bfseries Fields\tabularnewline
+\hline\hline
+article & \raggedright{\bfseries author, title, journal, year, } volume, number, pages, note, {{\bfseries lang}uage}\tabularnewline
+\hline
+book & \raggedright{\bfseries author/editor, title, }edition, translator, address, publisher, year, pages, note, {{\bfseries lang}uage}\tabularnewline
+\hline
+inproceedings(conference) & \raggedright {\bfseries author, title, }editor, booktitle, address, publisher,
+year, pages, note, {{\bfseries lang}uage}\tabularnewline
+\hline
+mastersthesis  &\raggedright{\bfseries author, title, address, school, year, }note, {{\bfseries lang}uage}\tabularnewline
+\hline 
+phdthesis  &\raggedright{\bfseries author, title, address, school, year, }note, {{\bfseries lang}uage}\tabularnewline
+\hline 
+patent & \raggedright{\bfseries applicant\footnotemark, title, }littype\footnotemark,
+country, pid\footnotemark, year, month, day, 
+note, {{\bfseries lang}uage}\tabularnewline
+\hline
+standard & \raggedright{\bfseries author, title, }stdcode\footnotemark, address, publisher, year, 
+note, {{\bfseries lang}uage}\tabularnewline
+\hline
+news & \raggedright{\bfseries author, title, newspaper, }year, month, day, pages, note, {{\bfseries lang}uage}\tabularnewline
+\hline
+misc &\raggedright{\bfseries }author, title, url, year, month, day, note, {{\bfseries lang}uage}\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+\footnotetext[1]{专利申请人}
+\footnotetext[2]{专利文献类型}
+\footnotetext[3]{专利号}
+\footnotetext[4]{标准号}
+需要注意的是，若为英文参考文献，则language field 可以省略，而对于中文参考文献language field 则必须出现在\verb=.bib= 文献数据库中。
+其取值任意，但建议设为\verb+language={zh}+，或\verb+language="zh"+，以保持一致性。
+这就是表\ref{entrytable}中的{{\bfseries lang}uage}一半黑体一半非黑体的原因。
+参考文献部分给出了很多文献格式的例子。
+
+\nocite{komine2004fundamental}
+\nocite{dimitrov2015principles}
+\nocite{fujimoto2014fastest}
+\nocite{ieee2012ieee}
+\nocite{irdawebsite}
+\nocite{vlcnews}
+\nocite{pt}
+\nocite{thesis:a}
+\nocite{thesis:b}
+
+\chapter{全文总结}
+本文主要介绍了如何使用seucata \LaTeX 文档类来对东南大学硕士与博士学位论文进行排版。
+
+\acknowledgement
+感谢每一位支持seucata 的人！
+
+\thesisbib{seuthesix}
+
+\appendix
+
+\end{document}
