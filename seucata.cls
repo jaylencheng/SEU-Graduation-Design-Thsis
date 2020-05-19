@@ -363,8 +363,6 @@ listtablename={表格目录}
    \setlength{\tabcolsep}{10pt}
     \renewcommand{\arraystretch}{2.0}
      \begin{tabular}{ll}
-       \CoverBottomOption{\appdegreepre}{\@degreetype} &
-       \CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
        \CoverBottomOption{\majorpre}{\@major} &
        \CoverBottomOption{\defenddatepre}{\@defenddate}\\
        \CoverBottomOption{\submajorpre}{\@submajor} &
@@ -467,8 +465,6 @@ listtablename={表格目录}
    \setlength{\tabcolsep}{10pt}
     \renewcommand{\arraystretch}{2.0}
      \begin{tabular}{ll}
-       \CoverBottomOption{\appdegreepre}{\@degreetype} &
-       \CoverBottomOption{\authorizeorganizationpre}{\@authorizeorganization} \\
        \CoverBottomOption{\majorpre}{\@major} &
        \CoverBottomOption{\defenddatepre}{\@defenddate}\\
        \CoverBottomOption{\submajorpre}{\@submajor} &
